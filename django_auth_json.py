@@ -2,7 +2,7 @@ from functools import wraps
 from django.core.exceptions import PermissionDenied
 from django.utils.decorators import available_attrs
 
-from django_rendre_json import render_json
+from django_render_json import render_json
 
 
 def user_passes_test(test_func, alternative):
