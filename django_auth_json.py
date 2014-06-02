@@ -11,18 +11,16 @@ def user_passes_test(test_func, alternative):
         def _wrapped_view(request, *args, **kwargs):
             if test_func(request.user):
                 return view_func(request, *args, **kwargs)
-            return render_json(request, alternative)
+            return render_json(alternative)
         return _wrapped_view
     return decorator
 
 
 def login_required(alternative):
-    actual_decorator = user_passes_test(
+    return user_passes_test(
         lambda u: u.is_authenticated(),
         alternative
     )
-
-    return actual_decorator
 
 
 def permission_required(perm, alternative, raise_exception=False):
@@ -39,5 +37,6 @@ def permission_required(perm, alternative, raise_exception=False):
             raise PermissionDenied
 
         return False
+
     return user_passes_test(check_perms, alternative)
 
