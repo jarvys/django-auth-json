@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
 	name='django-auth-json',
-	version='0.0.1',
+	version='0.0.2',
 	description='replace the login url parameter of django auth decorator with json',
 	author='yangchen',
 	author_email='yuhan534@126.com',
