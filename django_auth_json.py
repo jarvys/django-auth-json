@@ -16,7 +16,7 @@ def user_passes_test(test_func, alternative):
     return decorator
 
 
-def login_required(fn, alternative):
+def login_required(alternative):
     actual_decorator = user_passes_test(
         lambda u: u.is_authenticated(),
         alternative
