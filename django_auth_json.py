@@ -22,7 +22,7 @@ def login_required(alternative):
         alternative
     )
 
-    return actual_decorator(fn)
+    return actual_decorator
 
 
 def permission_required(perm, alternative, raise_exception=False):
