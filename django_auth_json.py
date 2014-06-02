@@ -32,13 +32,13 @@ def permission_required(perm, alternative, raise_exception=False):
             perms = (perm, )
         else:
             perms = perm
-        # First check if the user has the permission (even anon users)
+
         if user.has_perms(perms):
             return True
-        # In case the 403 handler should be called raise the exception
+
         if raise_exception:
             raise PermissionDenied
-        # As the last resort, show the login form
+
         return False
     return user_passes_test(check_perms, alternative)
 
